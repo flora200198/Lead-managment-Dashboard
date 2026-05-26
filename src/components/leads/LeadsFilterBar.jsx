@@ -1,15 +1,16 @@
 import React, { memo } from 'react'
 import { Search, Filter, X } from 'lucide-react'
-import { STATUSES, SOURCES } from '../../utils/mockData'
+import { STATUSES, SOURCES, PRODUCTS } from '../../utils/mockData'
 
 function LeadsFilterBar({
   search, onSearch,
   statusFilter, onStatusFilter,
   sourceFilter, onSourceFilter,
+  productFilter, onProductFilter,
   onReset,
   totalShown, totalAll,
 }) {
-  const hasFilter = search || statusFilter !== 'All' || sourceFilter !== 'All'
+  const hasFilter = search || statusFilter !== 'All' || sourceFilter !== 'All' || productFilter !== ''
 
   return (
     <div className="flex flex-wrap items-center gap-3 px-5 py-3.5 border-b border-gray-100 bg-surface-secondary/50">
@@ -46,6 +47,14 @@ function LeadsFilterBar({
       >
         <option value="All">All Sources</option>
         {SOURCES.map(s => <option key={s} value={s}>{s}</option>)}
+      </select>
+
+      <select className="form-field py-2 text-xs w-auto min-w-[120px]" 
+      value={productFilter}
+      onChange={e => onProductFilter(e.target.value)}
+      >
+        <option value="">All Products</option>
+        {PRODUCTS.map(p => <option key={p} value={p}>{p}</option>)}
       </select>
 
       {/* Reset */}

@@ -12,7 +12,7 @@ const INITIAL = {
   status: 'Hot', value: '', notes: '',
 }
 
-// ── Validation ─────────────────────────────────────────────────────────────────
+// ── Validation ────────────────────────────────────────c─────────────────────────
 function validate(form) {
   const errors = {}
   if (!form.name.trim())    errors.name    = 'Full name is required'

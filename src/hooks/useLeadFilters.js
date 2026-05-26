@@ -9,6 +9,7 @@ export function useLeadFilters(leads = []) {
   const [search,     setSearch]     = useState('')
   const [statusFilter, setStatusFilter] = useState('All')
   const [sourceFilter, setSourceFilter] = useState('All')
+  const [productFilter, setProductFilter] = useState('')
   const [sortKey,    setSortKey]    = useState('createdAt')
   const [sortDir,    setSortDir]    = useState('desc')
 
@@ -21,6 +22,10 @@ export function useLeadFilters(leads = []) {
 
     if (sourceFilter !== 'All') {
       result = result.filter(l => l.source === sourceFilter)
+    }
+
+      if (productFilter) {
+      result = result.filter(l => l.product === productFilter)
     }
 
     if (search.trim()) {
@@ -44,7 +49,7 @@ export function useLeadFilters(leads = []) {
     })
 
     return result
-  }, [leads, search, statusFilter, sourceFilter, sortKey, sortDir])
+  }, [leads, search, statusFilter, sourceFilter, productFilter, sortKey, sortDir])
 
   const toggleSort = (key) => {
     if (sortKey === key) setSortDir(d => d === 'asc' ? 'desc' : 'asc')
@@ -55,6 +60,7 @@ export function useLeadFilters(leads = []) {
     setSearch('')
     setStatusFilter('All')
     setSourceFilter('All')
+    setProductFilter('')
   }
 
   return {
@@ -62,6 +68,7 @@ export function useLeadFilters(leads = []) {
     search, setSearch,
     statusFilter, setStatusFilter,
     sourceFilter, setSourceFilter,
+    productFilter, setProductFilter,
     sortKey, sortDir, toggleSort,
     resetFilters,
   }

@@ -14,6 +14,7 @@ export default function Leads() {
     search,       setSearch,
     statusFilter, setStatusFilter,
     sourceFilter, setSourceFilter,
+    productFilter, setProductFilter,
     sortKey, sortDir, toggleSort,
     resetFilters,
   } = useLeadFilters(leads)
@@ -48,6 +49,7 @@ export default function Leads() {
           search={search}           onSearch={setSearch}
           statusFilter={statusFilter} onStatusFilter={setStatusFilter}
           sourceFilter={sourceFilter} onSourceFilter={setSourceFilter}
+          productFilter={productFilter} onProductFilter={setProductFilter}
           onReset={resetFilters}
           totalShown={filtered.length}
           totalAll={leads.length}

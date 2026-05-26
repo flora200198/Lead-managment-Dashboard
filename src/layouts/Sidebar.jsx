@@ -55,7 +55,7 @@ function Sidebar({ isOpen, onClose }) {
     <aside
       className={`
         fixed inset-y-0 left-0 z-30 w-[220px] flex-shrink-0
-        bg-surface-dark flex flex-col transition-transform duration-200
+         bg-blue-100 flex flex-col transition-transform duration-200
         lg:static lg:translate-x-0
         ${isOpen ? 'translate-x-0' : '-translate-x-full'}
       `}
@@ -95,7 +95,7 @@ function Sidebar({ isOpen, onClose }) {
         ))}
       </div>
 
-      {/* User card */}
+      {/* User card */} 
       <div className="p-3 border-t border-white/[0.07]">
         <div className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/[0.05] cursor-pointer transition-colors">
           <div className="w-7 h-7 rounded-full bg-gradient-to-br from-brand-400 to-purple-500 flex items-center justify-center text-[11px] font-semibold text-white flex-shrink-0">
